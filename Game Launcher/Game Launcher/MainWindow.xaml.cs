@@ -24,8 +24,20 @@ namespace Game_Launcher {
             MenuToggleButton.IsChecked = false;
         }
 
-        private void MenuPopupButton_OnClick(object sender, RoutedEventArgs e) {
+        private void GridButton_OnClick(object sender, RoutedEventArgs e) {
             return; //Just a return so the buttons dont error all over your face
-            }
         }
+        private void PosterButton_OnClick(object sender, RoutedEventArgs e) {
+            return; //Just a return so the buttons dont error all over your face
+        }
+        private void BannerButton_OnClick(object sender, RoutedEventArgs e) {
+            return; //Just a return so the buttons dont error all over your face
+        }
+        private void ListButton_OnClick(object sender, RoutedEventArgs e) {
+            return; //Just a return so the buttons dont error all over your face
+        }
+        private void SettingsButton_OnClick(object sender, RoutedEventArgs e) {
+            return; //Just a return so the buttons dont error all over your face
+        }
+    }
     }

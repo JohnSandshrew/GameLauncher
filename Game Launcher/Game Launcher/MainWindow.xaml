@@ -51,6 +51,7 @@
                 <!-- Hamburger-->
                 <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}"
                           IsChecked="False"
+                          Margin="20 0 0 0"
                           x:Name="MenuToggleButton" />
                 <!-- Title -->
                 <TextBlock VerticalAlignment="Center"
@@ -65,7 +66,7 @@
                                      StaysOpen="False"
                                      HorizontalAlignment="Right">
                     <StackPanel>
-                        <Button Click="MenuPopupButton_OnClick" >
+                        <Button Click="GridButton_OnClick" >
                             <StackPanel Orientation="Horizontal">
                                 <materialDesign:PackIcon Kind="ViewModule"
                                                      VerticalAlignment="Center"
@@ -73,7 +74,7 @@
                                 <TextBlock>Grid view</TextBlock>
                             </StackPanel>
                         </Button>
-                        <Button Click="MenuPopupButton_OnClick" >
+                        <Button Click="PosterButton_OnClick" >
                             <StackPanel Orientation="Horizontal">
                                 <materialDesign:PackIcon Kind="ViewList"
                                                      VerticalAlignment="Center"
@@ -81,7 +82,7 @@
                                 <TextBlock>Poster view</TextBlock>
                             </StackPanel>
                         </Button>
-                        <Button Click="MenuPopupButton_OnClick" >
+                        <Button Click="BannerButton_OnClick" >
                             <StackPanel Orientation="Horizontal">
                                 <materialDesign:PackIcon Kind="ViewStream"
                                                      VerticalAlignment="Center"
@@ -89,7 +90,7 @@
                                 <TextBlock>Banner view</TextBlock>
                             </StackPanel>
                         </Button>
-                        <Button Click="MenuPopupButton_OnClick" >
+                        <Button Click="ListButton_OnClick" >
                             <StackPanel Orientation="Horizontal">
                                 <materialDesign:PackIcon Kind="ViewHeadline"
                                                      VerticalAlignment="Center"
@@ -97,7 +98,7 @@
                                 <TextBlock>List view</TextBlock>
                             </StackPanel>
                         </Button>
-                        <Button Click="MenuPopupButton_OnClick" >
+                        <Button Click="SettingsButton_OnClick" >
                             <StackPanel Orientation="Horizontal">
                                 <materialDesign:PackIcon Kind="Settings"
                                                      VerticalAlignment="Center"
