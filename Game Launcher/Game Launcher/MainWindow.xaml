@@ -103,7 +103,7 @@
                                 <materialDesign:PackIcon Kind="Settings"
                                                      VerticalAlignment="Center"
                                                      Margin="0 0 10 0"/>
-                                <TextBlock>Settings view</TextBlock>
+                                <TextBlock>Settings</TextBlock>
                             </StackPanel>
                         </Button>
                     </StackPanel>

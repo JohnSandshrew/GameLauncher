@@ -23,7 +23,7 @@ namespace Game_Launcher {
             MenuToggleButton.IsChecked = false;
         }
 
-        string displayType;
+        string displayType; 
 
         private void GridButton_OnClick(object sender, RoutedEventArgs e) {
             string displayType = "grid";
