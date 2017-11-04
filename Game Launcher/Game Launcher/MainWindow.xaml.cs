@@ -2,6 +2,7 @@
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Threading.Tasks;
 using MaterialDesignThemes.Wpf;
 using MaterialDesignColors;
 
@@ -23,7 +24,8 @@ namespace Game_Launcher {
             MenuToggleButton.IsChecked = false;
         }
 
-        string displayType; 
+        string displayType;
+        
 
         private void GridButton_OnClick(object sender, RoutedEventArgs e) {
             string displayType = "grid";
@@ -45,5 +47,11 @@ namespace Game_Launcher {
             //code needed to bring up a settings form or something idk
             return; //Just a return so the buttons dont error all over your face
         }
+
+        private void AddGame_OnClick(object sender, RoutedEventArgs e) {
+            //Popup - Add a game
+            return;
+        }
+        
     }
     }
