@@ -156,7 +156,8 @@
                     HorizontalAlignment="Right"
                     VerticalAlignment="Bottom"
                     Margin="0 0 30 40"
-                    ToolTip="Add a Game" >
+                    ToolTip="Add a Game"
+                    Name="AddGameDialog">
                 <materialDesign:PackIcon Kind="Plus"
                                          VerticalAlignment="Center"
                                          Height="30"
@@ -225,41 +226,22 @@
                                          Width="20" />
                         </Button>
                         <!--#endregion-->
-                        <!--#region NewGameGenre [Add spinner] -->
-                        <TextBox Grid.Row="4"
-                                 Grid.ColumnSpan="3"
-                                 Margin="40 0 40 0"
-                                 IsEnabled="False"
-                                 materialDesign:HintAssist.Hint="Genre"
-                                 Name="NewGameGenre"
-                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}">
-                        </TextBox>
-                        <!--#region Genre Picker-->
-                        <Button Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
-                                Style="{DynamicResource MaterialDesignToolButton}"
-                                Width="25"
-                                Height="25"
-                                Grid.Row="4"
-                                Grid.Column="3"
-                                Margin="0 30 10 10"
-                                HorizontalAlignment="Right"
-                                VerticalAlignment="Bottom"
-                                IsDefault="False"
-                                ToolTip="Select Genre(s)">
-                            <materialDesign:PackIcon Kind="DotsVertical"/>
-                        </Button>
-                        <Grid Width="300"
-                              Height="Auto">
-                            <Grid.RowDefinitions>
-                                
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                
-                            </Grid.ColumnDefinitions>
-
-
-                            </Grid>
-                        <!--#endregion-->
+                        <!--#region NewGameGenre [Add dialog] -->
+                        <!--Need to set up binding for genre list array, to add/remove from settings-->
+                        <ComboBox materialDesign:HintAssist.Hint="Genre(s)"
+                                  Grid.Row="4"
+                                  Grid.ColumnSpan="3"
+                                  MinWidth="72"
+                                  Margin="40 20 40 20"
+                                  Name="NewGameGenre"
+                                  ItemsSource="{Binding genre}" 
+                                  Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                            <ComboBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <VirtualizingStackPanel />
+                                </ItemsPanelTemplate>
+                            </ComboBox.ItemsPanel>
+                        </ComboBox>
                         <!--#endregion-->
                         <!--#region NewGameLink -->
                         <TextBox Grid.Row="5"

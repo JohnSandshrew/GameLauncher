@@ -11,8 +11,20 @@ namespace Game_Launcher {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+
+    class Genres { public string[] genre { get; set; } }
+    //THIS SECTION CURRENTLY NOT WORKING FOR BINDING TO GENRE DROPDOWN
     public partial class MainWindow : Window {
         public MainWindow() {
+            Genres _Genres = new Genres {
+                genre = new string[] {
+                "Action",
+                "Fantasy",
+                "FPS",
+                "RPG",
+                "Simulation"
+            }
+            };
         }
 
         private void UIElement_OnPreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e) {
@@ -24,7 +36,6 @@ namespace Game_Launcher {
             }
             MenuToggleButton.IsChecked = false;
         }
-
 
         #region Changing display type
         string displayType;
