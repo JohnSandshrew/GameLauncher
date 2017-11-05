@@ -195,14 +195,13 @@
                                  Name="NewGameTitle"
                                  Style="{StaticResource MaterialDesignFloatingHintTextBox}">
                         </TextBox>
-                        <!-- GAME PATH  ##########CHANGE TO FILE PICKER -->
+                        <!-- GAME PATH -->
                         <TextBox Grid.Row="3"
                                  Grid.ColumnSpan="3"
                                  Margin="40 0 40 0"
                                  materialDesign:HintAssist.Hint="Path"
                                  Name="NewGamePath"
                                  Style="{StaticResource MaterialDesignFloatingHintTextBox}">
-                            
                         </TextBox>
                         <Button HorizontalAlignment="Right"
                                 VerticalAlignment="Bottom"

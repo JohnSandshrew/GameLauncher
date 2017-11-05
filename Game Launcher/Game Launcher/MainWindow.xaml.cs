@@ -56,13 +56,12 @@ namespace Game_Launcher {
             //Popup - Add a game
             return;
         }
-
-        //DOES NOT COPY A SHORTCUTS TARGET, SO ANY PARAMETERS ARE LOST. MUST LOOK INTO
+        
         private void AttachLauncher_OnClick(object sender, RoutedEventArgs e) {
             OpenFileDialog fileDialog = new OpenFileDialog();
             fileDialog.Multiselect = false;
             fileDialog.InitialDirectory = "C:\\";
-            fileDialog.Filter = "Executable files (*.exe) | *.exe";
+            fileDialog.Filter = "Executable files (*.exe) | *.exe;*.lnk";
             var dialogResult = fileDialog.ShowDialog();
             if (dialogResult == true) {
                 string launcherFile = fileDialog.FileName;
