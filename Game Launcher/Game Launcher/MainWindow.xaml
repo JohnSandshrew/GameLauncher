@@ -23,128 +23,131 @@
     <materialDesign:DialogHost Identifier="RootDialog" SnackbarMessageQueue="{Binding ElementName=MainSnackbar, Path=MessageQueue}">
         <Grid>
     <!-- Header for all pages - Like the titlebar -->
-    <!-- Popout Sidebar-->
-        <materialDesign:DrawerHost IsLeftDrawerOpen="{Binding ElementName=MenuToggleButton, Path=IsChecked}">
-            <materialDesign:DrawerHost.LeftDrawerContent>
-                <DockPanel MinWidth="212">
-                    <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" 
+    <!--#region sidebar for genres -->
+            <materialDesign:DrawerHost IsLeftDrawerOpen="{Binding ElementName=MenuToggleButton, Path=IsChecked}">
+                <materialDesign:DrawerHost.LeftDrawerContent>
+                    <DockPanel MinWidth="212">
+                        <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" 
                                     DockPanel.Dock="Top"
                                     HorizontalAlignment="Right" Margin="16"
                                     IsChecked="{Binding ElementName=MenuToggleButton, Path=IsChecked, Mode=TwoWay}" />
-                    <ListBox x:Name="ListBox" Margin="0 16 0 16" SelectedIndex="0"                         
+                        <ListBox x:Name="ListBox" Margin="0 16 0 16" SelectedIndex="0"                         
                              ItemsSource="{Binding DemoItems}"
                              PreviewMouseLeftButtonUp="UIElement_OnPreviewMouseLeftButtonUp">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate DataType="?">
-                                <TextBlock Text="{Binding Name}" Margin="32 0 32 0" />
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
-                </DockPanel>
-            </materialDesign:DrawerHost.LeftDrawerContent>
-            <!-- Colour bar -->
-            <materialDesign:ColorZone Padding="6"
+                            <ListBox.ItemTemplate>
+                                <DataTemplate DataType="?">
+                                    <TextBlock Text="{Binding Name}" Margin="32 0 32 0" />
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </DockPanel>
+                </materialDesign:DrawerHost.LeftDrawerContent>
+                <!--#region Top action bar -->
+                <materialDesign:ColorZone Padding="6"
                               Mode="PrimaryMid"
                               DockPanel.Dock="Top"
                               MaxHeight="100"
                               materialDesign:ShadowAssist.ShadowDepth="Depth2" >
 
-                <DockPanel>
-                    <!-- Hamburger-->
-                    <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}"
+                    <DockPanel>
+                        <!-- Hamburger-->
+                        <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}"
                           IsChecked="False"
                           Margin="20 0 0 0"
                           x:Name="MenuToggleButton" />
-                    <!-- Title -->
-                    <TextBlock VerticalAlignment="Center"
+                        <!-- Title -->
+                        <TextBlock VerticalAlignment="Center"
                        FontSize="20"
                        Margin="20 0 0 0"
                        FontWeight="SemiBold" >
-                Game Launcher
-                    </TextBlock>
-                    <!-- Top right menu button -->
-                    <materialDesign:PopupBox DockPanel.Dock="Right"
+                        Game Launcher
+                        </TextBlock>
+                        <!--#region Top right overflow -->
+                        <materialDesign:PopupBox DockPanel.Dock="Right"
                                      PlacementMode="BottomAndAlignRightEdges"
                                      StaysOpen="False"
                                      HorizontalAlignment="Right">
-                        <StackPanel>
-                            <Button Click="GridButton_OnClick" >
-                                <StackPanel Orientation="Horizontal">
-                                    <materialDesign:PackIcon Kind="ViewModule"
+                            <StackPanel>
+                                <Button Click="GridButton_OnClick" >
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="ViewModule"
                                                      VerticalAlignment="Center"
                                                      Margin="0 0 10 0"/>
-                                    <TextBlock>Grid view</TextBlock>
-                                </StackPanel>
-                            </Button>
-                            <Button Click="PosterButton_OnClick" >
-                                <StackPanel Orientation="Horizontal">
-                                    <materialDesign:PackIcon Kind="ViewList"
+                                        <TextBlock>Grid view</TextBlock>
+                                    </StackPanel>
+                                </Button>
+                                <Button Click="PosterButton_OnClick" >
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="ViewList"
                                                      VerticalAlignment="Center"
                                                      Margin="0 0 10 0"/>
-                                    <TextBlock>Poster view</TextBlock>
-                                </StackPanel>
-                            </Button>
-                            <Button Click="BannerButton_OnClick" >
-                                <StackPanel Orientation="Horizontal">
-                                    <materialDesign:PackIcon Kind="ViewStream"
+                                        <TextBlock>Poster view</TextBlock>
+                                    </StackPanel>
+                                </Button>
+                                <Button Click="BannerButton_OnClick" >
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="ViewStream"
                                                      VerticalAlignment="Center"
                                                      Margin="0 0 10 0"/>
-                                    <TextBlock>Banner view</TextBlock>
-                                </StackPanel>
-                            </Button>
-                            <Button Click="ListButton_OnClick" >
-                                <StackPanel Orientation="Horizontal">
-                                    <materialDesign:PackIcon Kind="ViewHeadline"
+                                        <TextBlock>Banner view</TextBlock>
+                                    </StackPanel>
+                                </Button>
+                                <Button Click="ListButton_OnClick" >
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="ViewHeadline"
                                                      VerticalAlignment="Center"
                                                      Margin="0 0 10 0"/>
-                                    <TextBlock>List view</TextBlock>
-                                </StackPanel>
-                            </Button>
-                            <Button Click="SettingsButton_OnClick" >
-                                <StackPanel Orientation="Horizontal">
-                                    <materialDesign:PackIcon Kind="Settings"
+                                        <TextBlock>List view</TextBlock>
+                                    </StackPanel>
+                                </Button>
+                                <Button Click="SettingsButton_OnClick" >
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="Settings"
                                                      VerticalAlignment="Center"
                                                      Margin="0 0 10 0"/>
-                                    <TextBlock>Settings</TextBlock>
-                                </StackPanel>
-                            </Button>
-                        </StackPanel>
-                    </materialDesign:PopupBox>
-                    <!-- Search Bar-->
-                    <materialDesign:ColorZone Mode="Light" 
+                                        <TextBlock>Settings</TextBlock>
+                                    </StackPanel>
+                                </Button>
+                            </StackPanel>
+                        </materialDesign:PopupBox>
+                        <!--#endregion-->
+                        <!--#region Search bar-->
+                        <materialDesign:ColorZone Mode="Light" 
                                       CornerRadius="2" 
                                       materialDesign:ShadowAssist.ShadowDepth="Depth1"
                                       HorizontalAlignment="Right"
                                       VerticalAlignment="Center"
                                       MaxHeight="60"
                                       Margin="0 0 20 0">
-                        <StackPanel Orientation="Horizontal" 
+                            <StackPanel Orientation="Horizontal" 
                             Margin="16"
                                 MaxHeight="20">
-                            <materialDesign:PackIcon Kind="Magnify"
+                                <materialDesign:PackIcon Kind="Magnify"
                                                 Opacity=".56"
                                                 VerticalAlignment="Center"/>
-                            <TextBox Margin="8 0 0 0" 
+                                <TextBox Margin="8 0 0 0" 
                                  MinWidth="150" 
                                  FontSize="11"
                                  materialDesign:HintAssist.Hint="Please search..." 
                                  materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
                                  BorderThickness="0"
                                  VerticalAlignment="Center">
-                            </TextBox>
-                            <Button Style="{DynamicResource MaterialDesignToolButton}">
-                                <materialDesign:PackIcon Kind="Send"
+                                </TextBox>
+                                <Button Style="{DynamicResource MaterialDesignToolButton}">
+                                    <materialDesign:PackIcon Kind="Send"
                                                  Opacity=".56"
                                                  VerticalAlignment="Center"
                                                  Margin="0 0 0 10"/>
-                            </Button>
-                        </StackPanel>
-                    </materialDesign:ColorZone>
-                </DockPanel>
+                                </Button>
+                            </StackPanel>
+                        </materialDesign:ColorZone>
+                        <!--#endregion-->
+                    </DockPanel>
                 </materialDesign:ColorZone>
+                <!--#endregion-->
             </materialDesign:DrawerHost>
-
-            <!-- MAIN CONTENT-->
+            <!--#endregion-->
+     <!--#region FAB for adding game-->
                 <Button
                     Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}" 
                     Style="{StaticResource MaterialDesignFloatingActionButton}"
@@ -159,6 +162,7 @@
                                          Height="30"
                                          Width="30" />
                     <Button.CommandParameter>
+                        <!--#region Dialog for adding games-->
                     <Grid Width="500"
                           Height="Auto">
                         <Grid.RowDefinitions>
@@ -179,6 +183,7 @@
                             <ColumnDefinition Width="3*" />
                             <ColumnDefinition Width="3*" />
                         </Grid.ColumnDefinitions>
+                        <!--#region Add Game Dialog Title-->
                         <TextBlock Grid.Row="1"
                                    Grid.ColumnSpan="3"
                                    FontSize="20" 
@@ -186,8 +191,9 @@
                                    HorizontalAlignment="Center" 
                                    VerticalAlignment="Top"
                                    Margin="0 20 0 0">Add a new game</TextBlock>
+                        <!--#endregion-->
 
-                         <!-- GAME TITLE-->
+                        <!--#region NewGameTitle -->
                         <TextBox Grid.Row="2"
                                  Grid.ColumnSpan="3"
                                  Margin="40 0 40 0"
@@ -195,7 +201,8 @@
                                  Name="NewGameTitle"
                                  Style="{StaticResource MaterialDesignFloatingHintTextBox}">
                         </TextBox>
-                        <!-- GAME PATH -->
+                        <!--#endregion-->
+                        <!--#region NewGamePath -->
                         <TextBox Grid.Row="3"
                                  Grid.ColumnSpan="3"
                                  Margin="40 0 40 0"
@@ -210,21 +217,51 @@
                                 Margin="0 30 10 10"
                                 IsDefault="False" 
                                 Style="{DynamicResource MaterialDesignToolButton}"
+                                ToolTip="Attach the game launcher"
                                 Click="AttachLauncher_OnClick">
                             <materialDesign:PackIcon Kind="Attachment"
                                          VerticalAlignment="Center"
                                          Height="20"
                                          Width="20" />
                         </Button>
-                        <!-- GAME GENRE(S) #########CHANGE TO MULTI SELECTION AND ADD NEW-->
+                        <!--#endregion-->
+                        <!--#region NewGameGenre [Add spinner] -->
                         <TextBox Grid.Row="4"
                                  Grid.ColumnSpan="3"
                                  Margin="40 0 40 0"
+                                 IsEnabled="False"
                                  materialDesign:HintAssist.Hint="Genre"
                                  Name="NewGameGenre"
                                  Style="{StaticResource MaterialDesignFloatingHintTextBox}">
                         </TextBox>
-                        <!-- GAME LINK-->
+                        <!--#region Genre Picker-->
+                        <Button Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
+                                Style="{DynamicResource MaterialDesignToolButton}"
+                                Width="25"
+                                Height="25"
+                                Grid.Row="4"
+                                Grid.Column="3"
+                                Margin="0 30 10 10"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Bottom"
+                                IsDefault="False"
+                                ToolTip="Select Genre(s)">
+                            <materialDesign:PackIcon Kind="DotsVertical"/>
+                        </Button>
+                        <Grid Width="300"
+                              Height="Auto">
+                            <Grid.RowDefinitions>
+                                
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                
+                            </Grid.ColumnDefinitions>
+
+
+                            </Grid>
+                        <!--#endregion-->
+                        <!--#endregion-->
+                        <!--#region NewGameLink -->
                         <TextBox Grid.Row="5"
                                  Grid.ColumnSpan="3"
                                  Margin="40 0 40 0"
@@ -232,7 +269,8 @@
                                  Name="NewGameLink"
                                  Style="{StaticResource MaterialDesignFloatingHintTextBox}">
                         </TextBox>
-                        <!-- GAME ICON ##########CHANGE TO FILE PICKER-->
+                        <!--#endregion-->
+                        <!--#region NewGameIcon -->
                         <TextBox Grid.Row="6"
                                  Grid.ColumnSpan="3"
                                  Margin="40 0 40 0"
@@ -240,7 +278,22 @@
                                  Name="NewGameIcon"
                                  Style="{StaticResource MaterialDesignFloatingHintTextBox}">
                         </TextBox>
-                        <!-- GAME POSTER #########CHANGE TO FILE PICKER-->
+                        <Button HorizontalAlignment="Right"
+                                VerticalAlignment="Bottom"
+                                Grid.Row="6"
+                                Grid.Column="2"
+                                Margin="0 30 10 10"
+                                IsDefault="False" 
+                                Style="{DynamicResource MaterialDesignToolButton}"
+                                ToolTip="Attach a small icon file (*INSERT RESOLUTION FOR IMG)"
+                                Click="AttachIcon_OnClick">
+                            <materialDesign:PackIcon Kind="Attachment"
+                                         VerticalAlignment="Center"
+                                         Height="20"
+                                         Width="20" />
+                        </Button>
+                        <!--#endregion-->
+                        <!--#region NewGamePoster -->
                         <TextBox Grid.Row="7"
                                  Grid.ColumnSpan="3"
                                  Margin="40 0 40 0"
@@ -248,7 +301,22 @@
                                  Name="NewGamePoster"
                                  Style="{StaticResource MaterialDesignFloatingHintTextBox}">
                         </TextBox>
-                        <!-- GAME BANNER ######CHANGE TO PICKER -->
+                        <Button HorizontalAlignment="Right"
+                                VerticalAlignment="Bottom"
+                                Grid.Row="7"
+                                Grid.Column="2"
+                                Margin="0 30 10 10"
+                                IsDefault="False" 
+                                Style="{DynamicResource MaterialDesignToolButton}"
+                                ToolTip="Attach a poster for the game (*INSERT RESOLUTION FOR IMG)"
+                                Click="AttachPoster_OnClick">
+                            <materialDesign:PackIcon Kind="Attachment"
+                                         VerticalAlignment="Center"
+                                         Height="20"
+                                         Width="20" />
+                        </Button>
+                        <!--#endregion-->
+                        <!--#region NewGameBanner -->
                         <TextBox Grid.Row="8"
                                  Grid.ColumnSpan="3"
                                  Margin="40 0 40 0"
@@ -256,16 +324,23 @@
                                  Name="NewGameBanner"
                                  Style="{StaticResource MaterialDesignFloatingHintTextBox}">
                         </TextBox>
-                        <!-- GAME UNINSTALL LINK #######CHANGE TO PICKER-->
-                        <TextBox Grid.Row="9"
-                                 Grid.ColumnSpan="3"
-                                 Margin="40 0 40 0"
-                                 materialDesign:HintAssist.Hint="Uninstall link"
-                                 Name="NewGameUninstall"
-                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}">
-                        </TextBox>
-                        
-                        
+                        <Button HorizontalAlignment="Right"
+                                VerticalAlignment="Bottom"
+                                Grid.Row="8"
+                                Grid.Column="2"
+                                Margin="0 30 10 10"
+                                IsDefault="False" 
+                                Style="{DynamicResource MaterialDesignToolButton}"
+                                ToolTip="Attach a banner for the game (*INSERT RESOLUTION FOR IMG)"
+                                Click="AttachBanner_OnClick">
+                            <materialDesign:PackIcon Kind="Attachment"
+                                         VerticalAlignment="Center"
+                                         Height="20"
+                                         Width="20" />
+                        </Button>
+                        <!--#endregion-->
+                        <!--#endregion-->
+                        <!--#region Cancel/Accept dialog buttons-->
                         <Button HorizontalAlignment="Left"
                                 VerticalAlignment="Bottom"
                                 Grid.Column="0"
@@ -273,7 +348,8 @@
                                 Margin="10 30 0 10"
                                 IsCancel="True"
                                 Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" 
-                                Style="{DynamicResource MaterialDesignFlatButton}">CANCEL</Button>
+                                Style="{DynamicResource MaterialDesignFlatButton}"
+                                Click="CancelAddGame_OnClick">CANCEL</Button>
                         <Button HorizontalAlignment="Right"
                                 VerticalAlignment="Bottom"
                                 Grid.Row="12"
@@ -283,11 +359,14 @@
                                 Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" 
                                 Style="{DynamicResource MaterialDesignFlatButton}"
                                 Click="AddGame_OnClick">ADD GAME</Button>
+
+                        <!--#endregion-->
                     </Grid>
+                        <!--#endregion-->
                 </Button.CommandParameter>
                     
             </Button>
-
+        <!--#endregion-->
         </Grid>
         </materialDesign:DialogHost>
 </Window>

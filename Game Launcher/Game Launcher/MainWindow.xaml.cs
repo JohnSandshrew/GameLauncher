@@ -53,10 +53,24 @@ namespace Game_Launcher {
         #endregion
         #region AddGame Dialog
         private void AddGame_OnClick(object sender, RoutedEventArgs e) {
-            //Popup - Add a game
-            return;
+            //save to a file, then clear
+            NewGameTitle.Text = null;
+            NewGamePath.Text = null;
+            NewGameGenre.Text = null;
+            NewGameLink.Text = null;
+            NewGameIcon.Text = null;
+            NewGamePoster.Text = null;
+            NewGameBanner.Text = null;
         }
-        
+        private void CancelAddGame_OnClick(object sender, RoutedEventArgs e) {
+            NewGameTitle.Text = null;
+            NewGamePath.Text = null;
+            NewGameGenre.Text = null;
+            NewGameLink.Text = null;
+            NewGameIcon.Text = null;
+            NewGamePoster.Text = null;
+            NewGameBanner.Text = null;
+        }
         private void AttachLauncher_OnClick(object sender, RoutedEventArgs e) {
             OpenFileDialog fileDialog = new OpenFileDialog();
             fileDialog.Multiselect = false;
@@ -64,12 +78,44 @@ namespace Game_Launcher {
             fileDialog.Filter = "Executable files (*.exe) | *.exe;*.lnk";
             var dialogResult = fileDialog.ShowDialog();
             if (dialogResult == true) {
-                string launcherFile = fileDialog.FileName;
-                NewGamePath.Text = launcherFile;
+                string ngLauncherFile = fileDialog.FileName;
+                NewGamePath.Text = ngLauncherFile;
+            }
+        }
+        private void AttachIcon_OnClick(object sender, RoutedEventArgs e) {
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            fileDialog.Multiselect = false;
+            fileDialog.InitialDirectory = "C:\\";
+            fileDialog.Filter = "Images (*.jpg;*.png;*.bmp) | *.jpg;*.png;*.bmp";
+            var dialogResult = fileDialog.ShowDialog();
+            if (dialogResult == true) {
+                string ngIconFile = fileDialog.FileName;
+                NewGameIcon.Text = ngIconFile;
+            }
+        }
+        private void AttachPoster_OnClick(object sender, RoutedEventArgs e) {
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            fileDialog.Multiselect = false;
+            fileDialog.InitialDirectory = "C:\\";
+            fileDialog.Filter = "Images (*.jpg;*.png;*.bmp) | *.jpg;*.png;*.bmp";
+            var dialogResult = fileDialog.ShowDialog();
+            if (dialogResult == true) {
+                string ngPosterFile = fileDialog.FileName;
+                NewGamePoster.Text = ngPosterFile;
+            }
+        }
+        private void AttachBanner_OnClick(object sender, RoutedEventArgs e) {
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            fileDialog.Multiselect = false;
+            fileDialog.InitialDirectory = "C:\\";
+            fileDialog.Filter = "Images (*.jpg;*.png;*.bmp) | *.jpg;*.png;*.bmp";
+            var dialogResult = fileDialog.ShowDialog();
+            if (dialogResult == true) {
+                string ngBannerFile = fileDialog.FileName;
+                NewGameBanner.Text = ngBannerFile;
             }
         }
         #endregion
 
-
     }
-    }
+}
