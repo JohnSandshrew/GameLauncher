@@ -159,28 +159,28 @@
                                          Height="30"
                                          Width="30" />
                     <Button.CommandParameter>
-                    <Grid Width="700"
-                          Height="500">
+                    <Grid Width="500"
+                          Height="Auto">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="3*" />
+                            <ColumnDefinition Width="3*" />
                         </Grid.ColumnDefinitions>
                         <TextBlock Grid.Row="1"
+                                   Grid.ColumnSpan="3"
                                    FontSize="20" 
                                    Width="Auto"
                                    HorizontalAlignment="Center" 
@@ -202,7 +202,21 @@
                                  materialDesign:HintAssist.Hint="Path"
                                  Name="NewGamePath"
                                  Style="{StaticResource MaterialDesignFloatingHintTextBox}">
+                            
                         </TextBox>
+                        <Button HorizontalAlignment="Right"
+                                VerticalAlignment="Bottom"
+                                Grid.Row="3"
+                                Grid.Column="2"
+                                Margin="0 30 10 10"
+                                IsDefault="False" 
+                                Style="{DynamicResource MaterialDesignToolButton}"
+                                Click="AttachLauncher_OnClick">
+                            <materialDesign:PackIcon Kind="Attachment"
+                                         VerticalAlignment="Center"
+                                         Height="20"
+                                         Width="20" />
+                        </Button>
                         <!-- GAME GENRE(S) #########CHANGE TO MULTI SELECTION AND ADD NEW-->
                         <TextBox Grid.Row="4"
                                  Grid.ColumnSpan="3"
@@ -255,16 +269,16 @@
                         
                         <Button HorizontalAlignment="Left"
                                 VerticalAlignment="Bottom"
-                                Grid.Column="1"
+                                Grid.Column="0"
                                 Grid.Row="12"
                                 Margin="10 30 0 10"
-                                IsDefault="False" 
+                                IsCancel="True"
                                 Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" 
                                 Style="{DynamicResource MaterialDesignFlatButton}">CANCEL</Button>
                         <Button HorizontalAlignment="Right"
                                 VerticalAlignment="Bottom"
                                 Grid.Row="12"
-                                Grid.Column="3"
+                                Grid.Column="2"
                                 Margin="0 30 10 10"
                                 IsDefault="True" 
                                 Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" 

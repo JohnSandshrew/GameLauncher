@@ -2,6 +2,7 @@
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Media;
+using Microsoft.Win32;
 using System.Threading.Tasks;
 using MaterialDesignThemes.Wpf;
 using MaterialDesignColors;
@@ -24,9 +25,9 @@ namespace Game_Launcher {
             MenuToggleButton.IsChecked = false;
         }
 
-        string displayType;
-        
 
+        #region Changing display type
+        string displayType;
         private void GridButton_OnClick(object sender, RoutedEventArgs e) {
             string displayType = "grid";
             return; //Just a return so the buttons dont error all over your face
@@ -43,15 +44,33 @@ namespace Game_Launcher {
             string displayType = "list";
             return; //Just a return so the buttons dont error all over your face
         }
+        #endregion 
+        #region Settings
         private void SettingsButton_OnClick(object sender, RoutedEventArgs e) {
             //code needed to bring up a settings form or something idk
             return; //Just a return so the buttons dont error all over your face
         }
-
+        #endregion
+        #region AddGame Dialog
         private void AddGame_OnClick(object sender, RoutedEventArgs e) {
             //Popup - Add a game
             return;
         }
-        
+
+        //DOES NOT COPY A SHORTCUTS TARGET, SO ANY PARAMETERS ARE LOST. MUST LOOK INTO
+        private void AttachLauncher_OnClick(object sender, RoutedEventArgs e) {
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            fileDialog.Multiselect = false;
+            fileDialog.InitialDirectory = "C:\\";
+            fileDialog.Filter = "Executable files (*.exe) | *.exe";
+            var dialogResult = fileDialog.ShowDialog();
+            if (dialogResult == true) {
+                string launcherFile = fileDialog.FileName;
+                NewGamePath.Text = launcherFile;
+            }
+        }
+        #endregion
+
+
     }
     }
